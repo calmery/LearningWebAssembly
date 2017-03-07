@@ -1,0 +1,185 @@
+03:06:29  ~/workspace  $ git clone https://github.com/WebAssembly/binaryen.git
+Cloning into 'binaryen'...
+remote: Counting objects: 40801, done.
+remote: Compressing objects: 100% (457/457), done.
+remote: Total 40801 (delta 220), reused 0 (delta 0), pack-reused 40341
+Receiving objects: 100% (40801/40801), 40.55 MiB | 2.89 MiB/s, done.
+Resolving deltas: 100% (34680/34680), done.
+03:06:56  ~/workspace  $ cd binaryen
+03:07:32  ~/workspace/binaryen  master  $ cmake . && make
+-- The C compiler identification is AppleClang 8.0.0.8000042
+-- The CXX compiler identification is AppleClang 8.0.0.8000042
+-- Check for working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc
+-- Check for working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++
+-- Check for working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- No build type selected, default to Release
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - found
+-- Found Threads: TRUE  
+-- Building with -std=c++11
+-- Building with -msse2
+-- Building with -mfpmath=sse
+-- Building with -Wall
+-- Building with -Werror
+-- Building with -Wextra
+-- Building with -Wno-unused-parameter
+-- Building with -fno-omit-frame-pointer
+-- Building with -fPIC
+-- Building with -O2
+-- Building with -UNDEBUG
+-- Configuring done
+CMake Warning (dev):
+Policy CMP0042 is not set: MACOSX_RPATH is enabled by default.  Run "cmake
+--help-policy CMP0042" for policy details.  Use the cmake_policy command to
+set the policy and suppress this warning.
+
+MACOSX_RPATH is not specified for the following targets:
+
+binaryen
+
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Generating done
+-- Build files have been written to: /Users/calmery/workspace/binaryen
+Scanning dependencies of target wasm
+[  1%] Building CXX object src/wasm/CMakeFiles/wasm.dir/wasm.cpp.o
+[  2%] Building CXX object src/wasm/CMakeFiles/wasm.dir/wasm-binary.cpp.o
+[  4%] Building CXX object src/wasm/CMakeFiles/wasm.dir/wasm-io.cpp.o
+[  5%] Building CXX object src/wasm/CMakeFiles/wasm.dir/wasm-s-parser.cpp.o
+[  6%] Linking CXX static library ../../lib/libwasm.a
+[  6%] Built target wasm
+Scanning dependencies of target ast
+[  8%] Building CXX object src/ast/CMakeFiles/ast.dir/ExpressionAnalyzer.cpp.o
+[  9%] Building CXX object src/ast/CMakeFiles/ast.dir/ExpressionManipulator.cpp.o
+[ 11%] Linking CXX static library ../../lib/libast.a
+[ 11%] Built target ast
+Scanning dependencies of target asmjs
+[ 12%] Building CXX object src/asmjs/CMakeFiles/asmjs.dir/asm_v_wasm.cpp.o
+[ 13%] Building CXX object src/asmjs/CMakeFiles/asmjs.dir/shared-constants.cpp.o
+[ 15%] Linking CXX static library ../../lib/libasmjs.a
+[ 15%] Built target asmjs
+Scanning dependencies of target passes
+[ 16%] Building CXX object src/passes/CMakeFiles/passes.dir/pass.cpp.o
+[ 18%] Building CXX object src/passes/CMakeFiles/passes.dir/CoalesceLocals.cpp.o
+[ 19%] Building CXX object src/passes/CMakeFiles/passes.dir/CodePushing.cpp.o
+[ 20%] Building CXX object src/passes/CMakeFiles/passes.dir/DeadCodeElimination.cpp.o
+[ 22%] Building CXX object src/passes/CMakeFiles/passes.dir/DuplicateFunctionElimination.cpp.o
+[ 23%] Building CXX object src/passes/CMakeFiles/passes.dir/ExtractFunction.cpp.o
+[ 25%] Building CXX object src/passes/CMakeFiles/passes.dir/Inlining.cpp.o
+[ 26%] Building CXX object src/passes/CMakeFiles/passes.dir/LegalizeJSInterface.cpp.o
+[ 27%] Building CXX object src/passes/CMakeFiles/passes.dir/MemoryPacking.cpp.o
+[ 29%] Building CXX object src/passes/CMakeFiles/passes.dir/MergeBlocks.cpp.o
+[ 30%] Building CXX object src/passes/CMakeFiles/passes.dir/Metrics.cpp.o
+[ 31%] Building CXX object src/passes/CMakeFiles/passes.dir/NameManager.cpp.o
+[ 33%] Building CXX object src/passes/CMakeFiles/passes.dir/NameList.cpp.o
+[ 34%] Building CXX object src/passes/CMakeFiles/passes.dir/OptimizeInstructions.cpp.o
+[ 36%] Building CXX object src/passes/CMakeFiles/passes.dir/PickLoadSigns.cpp.o
+[ 37%] Building CXX object src/passes/CMakeFiles/passes.dir/PostEmscripten.cpp.o
+[ 38%] Building CXX object src/passes/CMakeFiles/passes.dir/Precompute.cpp.o
+[ 40%] Building CXX object src/passes/CMakeFiles/passes.dir/Print.cpp.o
+[ 41%] Building CXX object src/passes/CMakeFiles/passes.dir/PrintCallGraph.cpp.o
+[ 43%] Building CXX object src/passes/CMakeFiles/passes.dir/RelooperJumpThreading.cpp.o
+[ 44%] Building CXX object src/passes/CMakeFiles/passes.dir/RemoveImports.cpp.o
+[ 45%] Building CXX object src/passes/CMakeFiles/passes.dir/RemoveMemory.cpp.o
+[ 47%] Building CXX object src/passes/CMakeFiles/passes.dir/RemoveUnusedBrs.cpp.o
+[ 48%] Building CXX object src/passes/CMakeFiles/passes.dir/RemoveUnusedNames.cpp.o
+[ 50%] Building CXX object src/passes/CMakeFiles/passes.dir/RemoveUnusedModuleElements.cpp.o
+[ 51%] Building CXX object src/passes/CMakeFiles/passes.dir/ReorderLocals.cpp.o
+[ 52%] Building CXX object src/passes/CMakeFiles/passes.dir/ReorderFunctions.cpp.o
+[ 54%] Building CXX object src/passes/CMakeFiles/passes.dir/SimplifyLocals.cpp.o
+[ 55%] Building CXX object src/passes/CMakeFiles/passes.dir/Vacuum.cpp.o
+[ 56%] Linking CXX static library ../../lib/libpasses.a
+[ 56%] Built target passes
+Scanning dependencies of target support
+[ 58%] Building CXX object src/support/CMakeFiles/support.dir/archive.cpp.o
+[ 59%] Building CXX object src/support/CMakeFiles/support.dir/bits.cpp.o
+[ 61%] Building CXX object src/support/CMakeFiles/support.dir/colors.cpp.o
+[ 62%] Building CXX object src/support/CMakeFiles/support.dir/command-line.cpp.o
+[ 63%] Building CXX object src/support/CMakeFiles/support.dir/file.cpp.o
+[ 65%] Building CXX object src/support/CMakeFiles/support.dir/safe_integer.cpp.o
+[ 66%] Building CXX object src/support/CMakeFiles/support.dir/threads.cpp.o
+[ 68%] Linking CXX static library ../../lib/libsupport.a
+[ 68%] Built target support
+Scanning dependencies of target wasm-as
+[ 69%] Building CXX object CMakeFiles/wasm-as.dir/src/tools/wasm-as.cpp.o
+[ 70%] Linking CXX executable bin/wasm-as
+[ 70%] Built target wasm-as
+Scanning dependencies of target emscripten-optimizer
+[ 72%] Building CXX object src/emscripten-optimizer/CMakeFiles/emscripten-optimizer.dir/optimizer-shared.cpp.o
+[ 73%] Building CXX object src/emscripten-optimizer/CMakeFiles/emscripten-optimizer.dir/parser.cpp.o
+[ 75%] Building CXX object src/emscripten-optimizer/CMakeFiles/emscripten-optimizer.dir/simple_ast.cpp.o
+[ 76%] Linking CXX static library ../../lib/libemscripten-optimizer.a
+[ 76%] Built target emscripten-optimizer
+Scanning dependencies of target wasm-opt
+[ 77%] Building CXX object CMakeFiles/wasm-opt.dir/src/tools/wasm-opt.cpp.o
+[ 79%] Linking CXX executable bin/wasm-opt
+[ 79%] Built target wasm-opt
+Scanning dependencies of target asm2wasm
+[ 80%] Building CXX object CMakeFiles/asm2wasm.dir/src/tools/asm2wasm.cpp.o
+[ 81%] Building CXX object CMakeFiles/asm2wasm.dir/src/wasm-emscripten.cpp.o
+[ 83%] Linking CXX executable bin/asm2wasm
+[ 83%] Built target asm2wasm
+Scanning dependencies of target binaryen
+[ 84%] Building CXX object CMakeFiles/binaryen.dir/src/binaryen-c.cpp.o
+[ 86%] Building CXX object CMakeFiles/binaryen.dir/src/cfg/Relooper.cpp.o
+[ 87%] Linking CXX shared library lib/libbinaryen.dylib
+[ 87%] Built target binaryen
+Scanning dependencies of target wasm-shell
+[ 88%] Building CXX object CMakeFiles/wasm-shell.dir/src/tools/wasm-shell.cpp.o
+[ 90%] Building CXX object CMakeFiles/wasm-shell.dir/src/wasm-interpreter.cpp.o
+[ 91%] Linking CXX executable bin/wasm-shell
+[ 91%] Built target wasm-shell
+Scanning dependencies of target wasm-dis
+[ 93%] Building CXX object CMakeFiles/wasm-dis.dir/src/tools/wasm-dis.cpp.o
+[ 94%] Linking CXX executable bin/wasm-dis
+[ 94%] Built target wasm-dis
+Scanning dependencies of target s2wasm
+[ 95%] Building CXX object CMakeFiles/s2wasm.dir/src/tools/s2wasm.cpp.o
+[ 97%] Building CXX object CMakeFiles/s2wasm.dir/src/wasm-emscripten.cpp.o
+[ 98%] Building CXX object CMakeFiles/s2wasm.dir/src/wasm-linker.cpp.o
+[100%] Linking CXX executable bin/s2wasm
+[100%] Built target s2wasm
+03:09:28  ~/workspace/binaryen  master  $ sudo make install
+Password:
+[  6%] Built target wasm
+[ 11%] Built target ast
+[ 15%] Built target asmjs
+[ 56%] Built target passes
+[ 68%] Built target support
+[ 70%] Built target wasm-as
+[ 76%] Built target emscripten-optimizer
+[ 79%] Built target wasm-opt
+[ 83%] Built target asm2wasm
+[ 87%] Built target binaryen
+[ 91%] Built target wasm-shell
+[ 94%] Built target wasm-dis
+[100%] Built target s2wasm
+Install the project...
+-- Install configuration: "Release"
+-- Installing: /usr/local/lib/libbinaryen.dylib
+-- Installing: /usr/local/include/binaryen-c.h
+-- Installing: /usr/local/bin/wasm.js
+-- Installing: /usr/local/bin/binaryen.js
+-- Installing: /usr/local/src/js
+-- Installing: /usr/local/src/js/binaryen.idl
+-- Installing: /usr/local/src/js/binaryen.js-extended.js
+-- Installing: /usr/local/src/js/binaryen.js-post.js
+-- Installing: /usr/local/src/js/binaryen.js-pre.js
+-- Installing: /usr/local/bin/wasm-shell
+-- Installing: /usr/local/bin/wasm-opt
+-- Installing: /usr/local/bin/asm2wasm
+-- Installing: /usr/local/bin/s2wasm
+-- Installing: /usr/local/bin/wasm-as
+-- Installing: /usr/local/bin/wasm-dis
+03:09:47  ~/workspace/binaryen  master  $

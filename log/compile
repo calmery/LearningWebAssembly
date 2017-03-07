@@ -1,0 +1,32 @@
+Last login: Tue Mar  7 16:08:26 on ttys001
+ 16:10:37  ~  $ mkdir sample
+ 16:10:40  ~  $ cd sample
+ 16:10:42  ~/sample  $ vim sample.cpp
+ 16:11:12  ~/sample  $ cat sample.cpp
+extern "C" {
+    int fib( int n ){
+        switch( n ){
+            case 0: return 0;
+            case 1: return 1;
+            default: return fib( n - 2 ) + fib( n - 1 );
+        }
+    }
+}
+ 16:13:53  ~/sample  $ clang++ sample.cpp -emit-llvm --target=wasm32 -Oz -c -o sample.bc
+ 16:13:58  ~/sample  $ llc sample.bc -march=wasm32 -filetype=asm -o sample.s
+ 16:14:15  ~/sample  $ s2wasm sample.s > sample.wast
+ 16:14:19  ~/sample  $ sexpr-wasm sample.wast -o sample.wasm
+ 16:14:24  ~/sample  $ vim index.html
+ 16:14:56  ~/sample  $ cat index.html
+<script>
+    
+    fetch( 'sample.wasm' )
+        .then( response => response.arrayBuffer() )
+        .then( buffer => WebAssembly.compile( buffer ) )
+        .then( module => {
+            const instance = new WebAssembly.Instance( module )
+            console.log( instance.exports.fib )
+        } )
+
+</script>
+ 16:16:32  ~/sample  $ 
