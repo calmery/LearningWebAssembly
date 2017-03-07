@@ -1,0 +1,13 @@
+<script>
+    
+	let sample = {}
+
+    fetch( 'sample.cpp.wasm' )
+        .then( response => response.arrayBuffer() )
+        .then( buffer => WebAssembly.compile( buffer ) )
+        .then( module => {
+            const instance = new WebAssembly.Instance( module )
+            Object.keys( instance.exports ).forEach( ( key, self ) => sample[key] = instance.exports[key] )
+        } )
+
+</script>
