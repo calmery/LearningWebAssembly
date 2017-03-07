@@ -1,0 +1,145 @@
+Last login: Tue Mar  7 20:45:10 on ttys002
+ 20:45:25  ~  $ cd /usr/local/src
+ 20:45:27  /usr/local/src  $ sudo git clone --recursive https://github.com/WebAssembly/wabt
+Password:
+Cloning into 'wabt'...
+remote: Counting objects: 14680, done.
+remote: Compressing objects: 100% (58/58), done.
+remote: Total 14680 (delta 17), reused 0 (delta 0), pack-reused 14622
+Receiving objects: 100% (14680/14680), 7.23 MiB | 1.04 MiB/s, done.
+Resolving deltas: 100% (11236/11236), done.
+Submodule 'third_party/gtest' (https://github.com/google/googletest) registered for path 'third_party/gtest'
+Submodule 'third_party/ply' (https://github.com/dabeaz/ply) registered for path 'third_party/ply'
+Submodule 'third_party/testsuite' (https://github.com/WebAssembly/testsuite) registered for path 'third_party/testsuite'
+Cloning into '/usr/local/src/wabt/third_party/gtest'...
+Cloning into '/usr/local/src/wabt/third_party/ply'...
+Cloning into '/usr/local/src/wabt/third_party/testsuite'...
+Submodule path 'third_party/gtest': checked out 'd225acc90bc3a8c420a9bcd1f033033c1ccd7fe0'
+Submodule path 'third_party/ply': checked out 'd776a2ece6c12bf8f8b6a0e65b48546ac6078765'
+Submodule path 'third_party/testsuite': checked out '3b40f00d28144913f0a8a164cdb5b577305a87ff'
+ 20:46:08  /usr/local/src  $ cd wabt/
+ 20:46:12  /usr/local/src/wabt  master  $ sudo make gcc-debug-no-tests
+mkdir -p out/gcc/Debug/no-tests/
+cd out/gcc/Debug/no-tests/ && cmake -G "Unix Makefiles" /usr/local/src/wabt/ -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTS=OFF
+-- The C compiler identification is AppleClang 8.0.0.8000042
+-- The CXX compiler identification is AppleClang 8.0.0.8000042
+-- Check for working C compiler: /usr/bin/gcc
+-- Check for working C compiler: /usr/bin/gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/g++
+-- Check for working CXX compiler: /usr/bin/g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Looking for alloca.h
+-- Looking for alloca.h - found
+-- Looking for unistd.h
+-- Looking for unistd.h - found
+-- Looking for snprintf
+-- Looking for snprintf - found
+-- Looking for sysconf
+-- Looking for sysconf - found
+-- Looking for strcasecmp
+-- Looking for strcasecmp - found
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of ssize_t
+-- Check size of ssize_t - done
+-- Check size of size_t
+-- Check size of size_t - done
+-- Check size of int
+-- Check size of int - done
+-- Check size of long
+-- Check size of long - done
+-- Check size of long long
+-- Check size of long long - done
+-- Could NOT find BISON: Found unsuitable version "2.3", but required is at least "3.0" (found /usr/bin/bison)
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - found
+-- Found Threads: TRUE  
+-- Found PythonInterp: /Users/calmery/.pyenv/shims/python2.7 (found suitable version "2.7.12", minimum required is "2.7") 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /usr/local/src/wabt/out/gcc/Debug/no-tests
+/Applications/Xcode.app/Contents/Developer/usr/bin/make --no-print-directory -C out/gcc/Debug/no-tests/ all
+Scanning dependencies of target libwabt
+[  2%] Building CXX object CMakeFiles/libwabt.dir/src/ast.cc.o
+[  4%] Building CXX object CMakeFiles/libwabt.dir/src/ast-parser-lexer-shared.cc.o
+[  6%] Building CXX object CMakeFiles/libwabt.dir/src/prebuilt/ast-lexer-gen.cc.o
+[  9%] Building CXX object CMakeFiles/libwabt.dir/src/prebuilt/ast-parser-gen.cc.o
+[ 11%] Building CXX object CMakeFiles/libwabt.dir/src/type-checker.cc.o
+[ 13%] Building CXX object CMakeFiles/libwabt.dir/src/validator.cc.o
+[ 16%] Building CXX object CMakeFiles/libwabt.dir/src/binary-reader.cc.o
+[ 18%] Building CXX object CMakeFiles/libwabt.dir/src/binary-writer.cc.o
+[ 20%] Building CXX object CMakeFiles/libwabt.dir/src/binary-writer-spec.cc.o
+[ 23%] Building CXX object CMakeFiles/libwabt.dir/src/binary-reader-ast.cc.o
+[ 25%] Building CXX object CMakeFiles/libwabt.dir/src/binding-hash.cc.o
+[ 27%] Building CXX object CMakeFiles/libwabt.dir/src/ast-writer.cc.o
+[ 30%] Building CXX object CMakeFiles/libwabt.dir/src/interpreter.cc.o
+[ 32%] Building CXX object CMakeFiles/libwabt.dir/src/binary-reader-interpreter.cc.o
+[ 34%] Building CXX object CMakeFiles/libwabt.dir/src/apply-names.cc.o
+[ 37%] Building CXX object CMakeFiles/libwabt.dir/src/generate-names.cc.o
+[ 39%] Building CXX object CMakeFiles/libwabt.dir/src/resolve-names.cc.o
+[ 41%] Building CXX object CMakeFiles/libwabt.dir/src/binary.cc.o
+[ 44%] Building CXX object CMakeFiles/libwabt.dir/src/common.cc.o
+[ 46%] Building CXX object CMakeFiles/libwabt.dir/src/config.cc.o
+[ 48%] Building CXX object CMakeFiles/libwabt.dir/src/literal.cc.o
+[ 51%] Building CXX object CMakeFiles/libwabt.dir/src/option-parser.cc.o
+[ 53%] Building CXX object CMakeFiles/libwabt.dir/src/stream.cc.o
+[ 55%] Building CXX object CMakeFiles/libwabt.dir/src/vector.cc.o
+[ 58%] Building CXX object CMakeFiles/libwabt.dir/src/writer.cc.o
+[ 60%] Linking CXX static library libwabt.a
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib: file: libwabt.a(config.cc.o) has no symbols
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib: file: libwabt.a(config.cc.o) has no symbols
+[ 60%] Built target libwabt
+Scanning dependencies of target wasm-link
+[ 62%] Building CXX object CMakeFiles/wasm-link.dir/src/tools/wasm-link.cc.o
+[ 65%] Building CXX object CMakeFiles/wasm-link.dir/src/binary-reader-linker.cc.o
+[ 67%] Linking CXX executable wasm-link
+[ 67%] Built target wasm-link
+Scanning dependencies of target wasm-interp
+[ 69%] Building CXX object CMakeFiles/wasm-interp.dir/src/tools/wasm-interp.cc.o
+[ 72%] Linking CXX executable wasm-interp
+[ 72%] Built target wasm-interp
+Scanning dependencies of target wasmopcodecnt
+[ 74%] Building CXX object CMakeFiles/wasmopcodecnt.dir/src/tools/wasmopcodecnt.cc.o
+[ 76%] Building CXX object CMakeFiles/wasmopcodecnt.dir/src/binary-reader-opcnt.cc.o
+[ 79%] Linking CXX executable wasmopcodecnt
+[ 79%] Built target wasmopcodecnt
+Scanning dependencies of target wast-desugar
+[ 81%] Building CXX object CMakeFiles/wast-desugar.dir/src/tools/wast-desugar.cc.o
+[ 83%] Linking CXX executable wast-desugar
+[ 83%] Built target wast-desugar
+Scanning dependencies of target wasm2wast
+[ 86%] Building CXX object CMakeFiles/wasm2wast.dir/src/tools/wasm2wast.cc.o
+[ 88%] Linking CXX executable wasm2wast
+[ 88%] Built target wasm2wast
+Scanning dependencies of target wasmdump
+[ 90%] Building CXX object CMakeFiles/wasmdump.dir/src/tools/wasmdump.cc.o
+[ 93%] Building CXX object CMakeFiles/wasmdump.dir/src/binary-reader-objdump.cc.o
+[ 95%] Linking CXX executable wasmdump
+[ 95%] Built target wasmdump
+Scanning dependencies of target wast2wasm
+[ 97%] Building CXX object CMakeFiles/wast2wasm.dir/src/tools/wast2wasm.cc.o
+[100%] Linking CXX executable wast2wasm
+[100%] Built target wast2wasm
+ 20:46:30  /usr/local/src/wabt  master  $ ls
+CMakeLists.txt				appveyor.yml				s2wasm_known_gcc_test_failures.txt
+Contributing.md				cmake					scripts
+LICENSE					demo					src
+Makefile				fuzz-in					test
+README.md				out					third_party
+ 20:46:45  /usr/local/src/wabt  master  $ cd out/gcc/Debug/no-tests/
+ 20:46:54  /usr/local/src/wabt/out/gcc/Debug/no-tests  $ cd
+ 20:46:54  ~  $ echo "export PATH=$PATH:/usr/local/src/wabt/out/gcc/Debug/no-tests/" >> .bash_profile
+ 20:47:34  ~  $ 
