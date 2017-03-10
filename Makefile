@@ -7,7 +7,7 @@ nodejs=nodejs
 canary:
 	clang++ ${path}/${file} -emit-llvm --target=wasm32 -Oz -c -o ${path}/${canary}/${file}.bc
 	llc ${path}/${canary}/${file}.bc -march=wasm32 -filetype=asm -o ${path}/${canary}/${file}.s
-	s2wasm ${path}/${canary}/${file}.s > ${path}/${canary}/${file}.wast
+	s2wasm ${path}/${canary}/${file}.s -o ${path}/${canary}/${file}.wast --allocate-stack 1024
 	sexpr-wasm ${path}/${canary}/${file}.wast -o ${path}/${canary}/${file}.wasm
 
 clean:
